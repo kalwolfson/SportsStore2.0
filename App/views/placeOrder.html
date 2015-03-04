@@ -1,0 +1,72 @@
+﻿<style>
+    .ng-invalid {background-color: lightpink; }
+    .ng-valid{ background-color: lightgreen;}
+    span.error{ color: red;font-weight: bold;}
+</style>
+<h2>Check out now</h2>
+<p> Please enter your details, and we'll ship your goods right away!</p>
+<form name="shippingForm" novalidate>
+    <div class="well">
+        <h3 class="text-center">Ship to</h3>
+        <div class="form-group">
+            <label>First Name(s)</label>
+            <input class="form-control" ng-model="data.shipping.fname" required/>
+            <span class="error" ng-show="shippingForm.fname.$error.required">
+                Please enter your first name
+            </span>
+            <label>Last Name</label>
+            <input class="form-control" ng-model="data.shipping.lname" required/>
+            <span class="error" ng-show="shippingForm.lname.$error.required">
+                Please enter your last name
+            </span>
+        </div>
+
+        <h3 class="text-center">Address</h3>
+        <div class="form-group">
+            <label class="text-center">Country</label>
+            <input class="form-control" ng-model="data.shipping.country" required/>
+            <span class="error" ng-show="shippingForm.country.$error.required">
+                Please enter your country name
+            </span>
+            <label class="text-center">Province</label>
+            <input class="form-control" ng-model="data.shipping.province" required/>
+            <span class="error" ng-show="shippingForm.province.$error.required">
+                Please enter your province name
+            </span>
+            <label class="text-center">City</label>
+            <input class="form-control" ng-model="data.shipping.city" required/>
+            <span class="error" ng-show="shippingForm.city.$error.required">
+                Please your city name
+            </span>
+            <label class="text-center">Street Address</label>
+            <input class="form-control" ng-model="data.shipping.street" required/>
+            <span class="error" ng-show="shippingForm.street.$error.required">
+                Please enter your street address
+            </span>
+            <label class="text-center">Zip/postal code</label>
+            <input class="form-control" ng-model="data.shipping.zip" required/>
+            <span class="error" ng-show="shippingForm.zip.$error.required">
+                Please enter your zip/postal code
+            </span>
+            <label class="text-center">Email Address</label>
+            <input class="form-control" type="email" ng-model="data.shipping.email"required>
+            <span style="color:red" ng-show="shippingForm.email.$dirty && shippingForm.email.$invalid">
+                <span ng-show="shippingForm.email.$error.required">Email is required.</span>
+                <span ng-show="shippingForm.email.$error.email">Invalid email address.</span>
+            </span>
+        </div>
+        <h3 class="text-center">Options</h3>
+        <div class="checkbox text-center">
+            <label>
+                <input name="giftwrap" type="checkbox" ng-model="data.shipping.giftwrap"/>
+                Gift wrap these items
+            </label>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary" ng-disabled="shippingForm.$invalid"
+                    ng-click="sendOrder(data.shipping)">
+                Complete order
+            <a href="#/complete"></a></button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,76 @@
+﻿body {
+
+}
+#MainImage {
+    width: 120px; 
+    height: 120px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    background-color: lightcyan
+   
+    
+}
+#ImageFrame1 {
+    width: 140px; 
+    height: 140px;
+    background-color: lightblue; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+#CheckoutImage {
+    width: 120px; 
+    height: 120px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    background-color: lightcyan
+}
+#DetailImage {
+    width: 300px; 
+    height: 300px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    background-color: black
+}
+.table td.tdRight {
+  text-align: right;
+}
+.table td.tdCenter {
+  text-align: center;
+}
+.table-nonfluid {
+   width: auto;
+}
+#PDHeading {
+    text-align: center;
+    color: darkslateblue
+}
+#DetailImageFrame {
+    width: 330px; 
+    height: 330px;
+    background-color: lightblue; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 15px;
+    
+}
+#DetailDiv {
+    height: 80%;
+    width: 100%;
+}
+
+.auto-style2
+{
+    width: 103px;
+}
+.BodyDiv {
+    background-color: beige;
+}

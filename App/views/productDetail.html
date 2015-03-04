@@ -1,0 +1,61 @@
+﻿<div class="BodyDiv">
+    <h1 id="PDHeading">Product Details</h1>
+<br/>
+<div ng-controller="productListCtrl" id="DetailDiv" class="container-fluid">
+    <div class="col-xs-1" id="detailSpacingDiv" style="width: 160px">
+        
+    </div>
+    <div  ng-init="getProductInfo()" class="col-xs-9" >
+        <div class="well">
+            <h3>
+                <strong>{{item.name}}<br/>
+                    {{item.description}}
+                </strong>
+                <span class="pull-right label label-primary">
+                    {{item.price | currency:"R"}}
+                </span>
+            </h3>
+            <button ng-click="addProductToCart(item)" class="btn btn-success pull-right">
+                Add to cart
+            </button>
+            <table class="table table-responsive" style="font-size:large; background-color: grey;color: ivory;">
+                <tr>
+                    <th class="auto-style2">
+                        Product Image
+                    </th>
+                    <th>Detailed Product Description</th>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div id="DetailImageFrame">
+                                        <img ng-src="{{item.Pic1.url}}" id="DetailImage"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="well-large" >
+                                        <b>{{item.BigDescription}}</b>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>    
+            </table>
+            <div class="text-center">
+                <a class="btn btn-primary" href="#/products">Continue shopping</a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</div>
+

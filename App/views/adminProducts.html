@@ -1,0 +1,64 @@
+﻿
+
+
+<div ng-controller="productCtrl">
+    <table id="productTable" class="auto-style1 table table-responsive table-striped table-hover table-bordered">
+        <tr>
+            <th class="auto-style2">Name</th>
+            <th colspan="2">Catalog Description</th>
+            <th colspan="3">Detailed Description</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Product Image</th>
+            <th>Options</th>
+        </tr>
+        <tr ng-repeat="item in products | orderBy: 'category'" ng-hide="item.objectId ==editedProduct.objectId">
+            <td class="auto-style2">{{item.name}}</td>
+            <td colspan="2">{{item.description}}</td>
+            <td colspan="3"><textarea class="form-control" style="width: 400px;" rows="4"readonly="readonly">{{item.BigDescription}} </textarea></td>
+            <td class="auto-style3">{{item.category}}</td>
+            <td class="auto-style4">{{item.price | currency:"R"}}</td>
+            <td class="auto-style5"><img ng-src="{{item.Pic1.url}}" id="MainImage"/></td>
+            <td class="auto-style6">
+                <button ng-click="startEdit(item)" class="btn btn-xs btn-primary">
+                    Edit
+                </button>
+                <button ng-click="deleteProduct(item)" class="btn btn-xs btn-primary">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        <tr ng-class="{danger: editedProduct}">
+            <td class="auto-style2"><input ng-model="editedProduct.name" required /></td>
+            <td colspan="2"><textarea cols="4" style="width: 300px;"id="CatalogueDescContent"name="CatalogueDescContent" 
+                          rows="4" class="form-control" ng-model="editedProduct.description" 
+                placeholder="Content"required ></textarea></td>
+            <td colspan="3"><textarea cols="8" style="width: 400px;" id="DetailDescContent"name="DetailDescContent" 
+                          rows="8" class="form-control"ng-model="editedProduct.BigDescription" 
+                placeholder="Content" required></textarea></td>
+            <td class="auto-style3"><input ng-model="editedProduct.category" required /></td>
+            <td class="auto-style4"><input type="number" ng-model="editedProduct.price" required /></td>
+            <td class="auto-style5"><input type="file" name="file" ng-model="editedProduct.Pic1" 
+                       onchange="angular.element(this).scope().uploadFile(this.files)" required/>
+
+            </td>
+            <td class="auto-style6">
+                <button ng-hide="editedProduct.objectId"
+                        ng-click="createProduct(editedProduct)"
+                        class="btn btn-xs btn-primary">
+                    Create
+                </button>
+                <button ng-show="editedProduct.objectId"
+                        ng-click="updateProduct(editedProduct)"
+                        class="btn btn-xs btn-primary">
+                    Save
+                </button>
+                <button ng-show="editedProduct"
+                        ng-click="cancelEdit()" 
+                        class="btn btn-xs btn-primary">
+                    Cancel
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
